@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: eddb1a485f16b1a44baa3a09740bfd1d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294035
+  packageName: Extensions Pro - More than 600 extensions
+  packageVersion: 1.7
+  assetPath: Assets/_ImmersiveGames/Scripts/Utils/Extensions/Color32Extensions.cs
+  uploadId: 732818
