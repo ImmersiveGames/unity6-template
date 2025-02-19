@@ -1,4 +1,5 @@
 ﻿using _ImmersiveGames.Scripts.SMSystem.Interface;
+using _ImmersiveGames.Scripts.Utils.DebugSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
@@ -11,7 +12,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
         protected static readonly int DashHash = Animator.StringToHash("Dash");
         protected static readonly int AttackHash = Animator.StringToHash("Punch");
         
-        protected const float CROSS_FADE_DURATION = 0.1f;
+        protected const float CrossFadeDuration = 0.1f;
 
         protected EnemyBaseState(Enemy enemy, Animator animator) {
             Enemy = enemy;
@@ -20,7 +21,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
         
         public virtual void OnEnter() {
             // noop
-            Debug.Log($"Enter state {GetType().Name}");
+            DebugManager.Log<EnemyBaseState>($"Enter state {GetType().Name}");
         }
 
         public virtual void Update() {
@@ -33,7 +34,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
 
         public virtual void OnExit() {
             // noop
-            Debug.Log($"Exiting state {GetType().Name}");
+            DebugManager.Log<EnemyBaseState>($"Exiting state {GetType().Name}");
         }
     }
 }

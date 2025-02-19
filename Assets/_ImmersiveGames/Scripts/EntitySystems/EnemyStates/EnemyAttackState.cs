@@ -13,7 +13,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
         
         public override void OnEnter() {
             base.OnEnter();
-            Animator.CrossFade(AttackHash, CROSS_FADE_DURATION);
+            Animator.CrossFade(AttackHash, CrossFadeDuration);
         }
         
         public override void Update() {

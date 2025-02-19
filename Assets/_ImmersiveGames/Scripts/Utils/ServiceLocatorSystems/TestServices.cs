@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using _ImmersiveGames.Scripts.Utils.DebugSystems;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
     public class TestServices : MonoBehaviour {
@@ -10,9 +11,9 @@ namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
         private IGameService _gameService;
         
         //Aqui ele considera fazer um instalador de serviços, preciso pesquisar sobre isso
-        private readonly List<Object> _services;
+        public List<Object> services;
         public TestServices(List<Object> services) {
-            _services = services;
+            this.services = services;
         }
 
         private void Awake() {
@@ -21,7 +22,7 @@ namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
             ServiceLocator.For(this).Register(_serializer = new MockSerializer());
             
             var serviceLocator = ServiceLocator.For(this);
-            foreach (var service in _services) {
+            foreach (var service in services) {
                 serviceLocator.Register(service.GetType(), service);
             }
             

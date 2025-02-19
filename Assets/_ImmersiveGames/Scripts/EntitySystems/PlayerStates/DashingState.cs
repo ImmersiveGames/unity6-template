@@ -5,7 +5,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.PlayerStates {
         public DashingState(PlayerController player, Animator animator) : base(player, animator) { }
         public override void OnEnter() {
             base.OnEnter();
-            Animator.CrossFade(DashHash,CROSS_FADE_DURATION);
+            Animator.CrossFade(DashHash,CrossFadeDuration);
         }
 
         public override void FixedUpdate() {

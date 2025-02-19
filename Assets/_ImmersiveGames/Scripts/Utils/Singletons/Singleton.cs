@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.Utils.Singletons {
-    public sealed class Singleton<T> : MonoBehaviour where T : Component {
+    public class Singleton<T> : MonoBehaviour where T : Component {
         private static T _instance;
 
         public static bool HasInstance => _instance != null;
@@ -22,7 +22,7 @@ namespace _ImmersiveGames.Scripts.Utils.Singletons {
         /// <summary>
         /// Make sure to call base.Awake() in override if you need awake.
         /// </summary>
-        private void Awake() {
+        protected virtual void Awake() {
             InitializeSingleton();
         }
 

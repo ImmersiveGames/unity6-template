@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _ImmersiveGames.Scripts.Utils.DebugSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
@@ -24,7 +25,7 @@ namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
 
     public class MockSerializer : ISerializer {
         public void Serialize(object obj) {
-            Debug.Log("MockSerializer.Serialize");
+            DebugManager.Log<MockLocalization>("MockSerializer.Serialize");
         }
     }
 
@@ -34,7 +35,7 @@ namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
 
     public class MockAudioService : IAudioService {
         public void PlaySound(string name) {
-            Debug.Log("MockAudioService.PlaySound");
+            DebugManager.Log<MockLocalization>("MockAudioService.PlaySound");
         }
     }
 
@@ -44,12 +45,12 @@ namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
 
     public class MockGameService : IGameService {
         public void Initialize() {
-            Debug.Log("MockGameService.Initialize");
+            DebugManager.Log<MockLocalization>("MockGameService.Initialize");
         }
     }
     public class MockMapService : IGameService {
         public void Initialize() {
-            Debug.Log("MApa Inicializado");
+            DebugManager.Log<MockLocalization>("Mapa Inicializado");
         }
     }
 }

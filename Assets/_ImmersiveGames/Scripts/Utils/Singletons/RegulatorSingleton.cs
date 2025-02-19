@@ -4,7 +4,7 @@ namespace _ImmersiveGames.Scripts.Utils.Singletons {
     /// <summary>
     /// Persistent Regulator singleton, will destroy any other older components of the same type it finds on awake
     /// </summary>
-    public sealed class RegulatorSingleton<T> : MonoBehaviour where T : Component {
+    public class RegulatorSingleton<T> : MonoBehaviour where T : Component {
         private static T _instance;
 
         public static bool HasInstance => _instance != null;

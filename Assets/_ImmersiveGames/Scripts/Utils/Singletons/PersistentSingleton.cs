@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.Utils.Singletons {
-    public sealed class PersistentSingleton<T> : MonoBehaviour where T : Component {
+    public class PersistentSingleton<T> : MonoBehaviour where T : Component {
         public bool autoUnParentOnAwake = true;
 
         private static T _instance;

@@ -5,7 +5,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.PlayerStates {
         public AttackState(PlayerController player, Animator animator) : base(player, animator) { }
 
         public override void OnEnter() {
-            Animator.CrossFade(AttackHash, CROSS_FADE_DURATION);
+            Animator.CrossFade(AttackHash, CrossFadeDuration);
             Player.Attack();
         }
 

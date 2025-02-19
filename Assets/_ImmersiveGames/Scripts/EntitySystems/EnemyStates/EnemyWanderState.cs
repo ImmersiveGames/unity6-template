@@ -16,7 +16,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
 
         public override void OnEnter() {
             base.OnEnter();
-            Animator.CrossFade(LocomotionHash, CROSS_FADE_DURATION);
+            Animator.CrossFade(LocomotionHash, CrossFadeDuration);
         }
 
         public override void Update() {

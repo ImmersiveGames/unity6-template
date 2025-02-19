@@ -5,7 +5,7 @@ namespace _ImmersiveGames.Scripts.EntitySystems.PlayerStates {
         public JumpState(PlayerController player, Animator animator) : base(player, animator) { }
         public override void OnEnter() {
             base.OnEnter();
-            Animator.CrossFade(JumpHash,CROSS_FADE_DURATION);
+            Animator.CrossFade(JumpHash,CrossFadeDuration);
         }
 
         public override void FixedUpdate() {
