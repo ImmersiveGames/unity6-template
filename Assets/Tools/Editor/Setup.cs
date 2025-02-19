@@ -57,7 +57,8 @@ namespace Tools.Editor {
         public static void InstallOpenSource() {
             Packages.InstallPackages(new[] {
                 "git+https://github.com/KyleBanks/scene-ref-attribute",
-                "git+https://github.com/starikcetin/Eflatun.SceneReference.git"
+                "git+https://github.com/starikcetin/Eflatun.SceneReference.git",
+                "git+https://github.com/Thundernerd/Unity3D-NSubstitute.git"
             });
         }
 
