@@ -56,9 +56,8 @@ namespace Tools.Editor {
         [MenuItem("Tools/Setup/Install My Favorite Open Source")]
         public static void InstallOpenSource() {
             Packages.InstallPackages(new[] {
-                "git+https://github.com/KyleBanks/scene-ref-attribute.git#upm",
                 "git+https://github.com/starikcetin/Eflatun.SceneReference.git#upm",
-                "git+https://github.com/Thundernerd/Unity3D-NSubstitute.git#upm"
+                "git+https://github.com/Thundernerd/Unity3D-NSubstitute.git"
             });
         }
 

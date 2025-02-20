@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_ImmersiveGames/Scenes/Bootstrapper.unity
+    guid: f72c85698d4d22d4ca6dbaa23d6485c0
+  - enabled: 1
+    path: Assets/_ImmersiveGames/Scenes/Testes Abillitys.unity
+    guid: cbdc4dcb55012194eb089f2375c63fc2
+  - enabled: 1
+    path: Assets/_ImmersiveGames/Scenes/Teste Locator & inject.unity
+    guid: bd72a59709c87a84ab02c0e81196003a
+  - enabled: 1
+    path: Assets/_ImmersiveGames/Scenes/Teste Scene.unity
+    guid: 389623a3b356a9c4388dfe590fc358dc
+  - enabled: 1
+    path: Assets/_ImmersiveGames/Scenes/UI.unity
+    guid: 0b8783b9b41fcab43882bf8c65d927ed
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

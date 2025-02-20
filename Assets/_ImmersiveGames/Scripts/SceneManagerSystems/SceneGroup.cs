@@ -1,10 +1,8 @@
-﻿using Sirenix.OdinInspector.Editor.Validation;
-
-namespace _ImmersiveGames.Scripts.SceneManagerSystems {
+﻿namespace _ImmersiveGames.Scripts.SceneManagerSystems {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    //using Eflatun.SceneReference;
+    using Eflatun.SceneReference;
 
     namespace Systems.SceneManagement {
         [Serializable]
@@ -24,6 +22,7 @@ namespace _ImmersiveGames.Scripts.SceneManagerSystems {
             public SceneType SceneType;
         }
     
-        public enum SceneType { ActiveScene, MainMenu, UserInterface, HUD, Cinematic, Environment, Tooling }
+        //Adicionar as cenas usadas para referencia
+        public enum SceneType { ActiveScene, MainMenu, UserInterface, HUD, Cinematic, Environment, Tooling, TESTES }
     }
 }
