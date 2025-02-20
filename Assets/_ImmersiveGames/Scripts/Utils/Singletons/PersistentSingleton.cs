@@ -24,7 +24,7 @@ namespace _ImmersiveGames.Scripts.Utils.Singletons {
         /// <summary>
         /// Make sure to call base.Awake() in override if you need awake.
         /// </summary>
-        private void Awake() {
+        protected virtual void Awake() {
             InitializeSingleton();
         }
 
