@@ -598,17 +598,9 @@ MonoBehaviour:
   - GroupName: Level One
     Scenes:
     - Reference:
-        asset: {fileID: 102900000, guid: bd72a59709c87a84ab02c0e81196003a, type: 3}
-        guid: bd72a59709c87a84ab02c0e81196003a
-      SceneType: 0
-    - Reference:
-        asset: {fileID: 102900000, guid: 0b8783b9b41fcab43882bf8c65d927ed, type: 3}
-        guid: 0b8783b9b41fcab43882bf8c65d927ed
-      SceneType: 2
-    - Reference:
-        asset: {fileID: 102900000, guid: cbdc4dcb55012194eb089f2375c63fc2, type: 3}
-        guid: cbdc4dcb55012194eb089f2375c63fc2
-      SceneType: 3
+        asset: {fileID: 102900000, guid: 6c602faa15fb32748a38edbfce42a45e, type: 3}
+        guid: 6c602faa15fb32748a38edbfce42a45e
+      SceneType: 7
 --- !u!1 &1115968786
 GameObject:
   m_ObjectHideFlags: 0
