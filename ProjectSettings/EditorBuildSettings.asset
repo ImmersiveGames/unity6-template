@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/_ImmersiveGames/Scenes/UI.unity
     guid: 0b8783b9b41fcab43882bf8c65d927ed
   - enabled: 1
+    path: Assets/_ImmersiveGames/Scenes/BehaviorTree.unity
+    guid: 3bcf69d7e880f3d47ab42367ac34c332
+  - enabled: 1
     path: Assets/_ImmersiveGames/Scenes/GoapTest.unity
     guid: 6c602faa15fb32748a38edbfce42a45e
   m_configObjects:

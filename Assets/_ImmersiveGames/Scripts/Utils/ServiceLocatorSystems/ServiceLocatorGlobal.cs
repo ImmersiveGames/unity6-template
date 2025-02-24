@@ -2,7 +2,7 @@
 
 namespace _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems {
     [AddComponentMenu("ServiceLocator/ServiceLocator Global")]
-    public class ServiceLocatorGlobal : Bootstrapper {
+    public class ServiceLocatorGlobal : ServiceLocatorBootstrapper {
         [SerializeField] private bool dontDestroyOnLoad = true;
         
         protected override void Bootstrap() {

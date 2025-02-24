@@ -1,28 +1,35 @@
 ﻿using System.Collections.Generic;
-using _ImmersiveGames.Scripts.BehaviorTreeSystem.Core;
-using _ImmersiveGames.Scripts.BehaviorTreeSystem.Interfaces;
+using _ImmersiveGames.Scripts.Utils.DebugSystems;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
-    public class SequenceNode : CompositeNode
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
+{
+    public class SequenceNode : ICompositeNode
     {
-        private int _currentNodeIndex = 0;
+        private readonly List<IBehaviorNode> children = new();
 
-        public SequenceNode(List<INode> nodes) : base(nodes) { }
+        public void AddChild(IBehaviorNode child) => children.Add(child);
+        public IReadOnlyList<IBehaviorNode> GetChildren() => children.AsReadOnly();
 
-        public override void OnEnter() => _currentNodeIndex = 0;
-
-        public override NodeState Tick()
+        public NodeState Execute()
         {
-            while (_currentNodeIndex < Nodes.Count)
+            DebugManager.LogVerbose<SequenceNode>("Starting sequence execution...");
+            foreach (var child in children)
             {
-                NodeState state = Nodes[_currentNodeIndex].Tick();
+                DebugManager.Log<SequenceNode>($"Executing child: {child.GetType().Name}");
+                var state = child.Execute();
+                DebugManager.Log<SequenceNode>($"Child returned state: {state}");
+
                 if (state != NodeState.Success)
+                {
+                    if (state == NodeState.Failure)
+                        DebugManager.LogWarning<SequenceNode>("Sequence interrupted due to child failure");
+                    else
+                        DebugManager.LogVerbose<SequenceNode>("Sequence paused due to Running state");
                     return state;
-                _currentNodeIndex++;
+                }
             }
+            DebugManager.Log<SequenceNode>("Sequence completed successfully");
             return NodeState.Success;
         }
-
-        public override void OnExit() => _currentNodeIndex = 0;
     }
 }
