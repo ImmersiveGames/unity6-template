@@ -16,12 +16,15 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
         // Propriedades públicas para acesso dinâmico
         public Vector3 Position { get => position; set => position = value; }
         public Transform Target { get => target; set => target = value; }
-        public GameObject Owner { get => owner; set => owner = value; }
-        public Animator Animator { get => animator; set => animator = value; }
-        public Transform SpawnPoint { get => spawnPoint; set => spawnPoint = value; }
+        public GameObject Owner { get => owner;
+            private set => owner = value; }
+        public Animator Animator { get => animator;
+            private set => animator = value; }
+        public Transform SpawnPoint { get => spawnPoint;
+            private set => spawnPoint = value; }
 
         // Dados dinâmicos (não serializados)
-        private readonly Dictionary<string, object> runtimeMemory = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> runtimeMemory = new ();
 
         // Método para resetar o estado dinâmico
         public void Reset()

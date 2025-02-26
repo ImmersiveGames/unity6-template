@@ -1,5 +1,5 @@
 ﻿using System;
-using _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems;
+using _ImmersiveGames.Scripts.ServiceLocatorSystems;
 using UnityEngine;
 using UnityEngine.AI;
 

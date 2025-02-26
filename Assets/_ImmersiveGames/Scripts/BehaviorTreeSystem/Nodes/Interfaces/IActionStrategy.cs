@@ -1,4 +1,4 @@
-﻿namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+﻿namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     public enum NodeState { Running, Success, Failure }
 
     // Interface para estratégias de ação

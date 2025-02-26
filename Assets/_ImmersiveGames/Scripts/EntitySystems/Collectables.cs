@@ -1,4 +1,4 @@
-﻿using _ImmersiveGames.Scripts.Utils.ChannelEventSystems.Channels;
+﻿using _ImmersiveGames.Scripts.ChannelEventSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.EntitySystems {

@@ -1,6 +1,6 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies;
+﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
     {
         public class RestartDecorator : IDecoratorNode
@@ -18,7 +18,7 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
 
             public NodeState Execute()
             {
-                NodeState state = Child.Execute();
+                var state = Child.Execute();
 
                 if (state == NodeState.Running)
                     return NodeState.Running;

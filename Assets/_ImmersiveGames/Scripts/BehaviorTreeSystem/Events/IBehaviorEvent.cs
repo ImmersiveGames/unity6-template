@@ -1,7 +1,8 @@
 ﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
+using _ImmersiveGames.Scripts.BusEventSystems;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Events {
-    public interface IBehaviorEvent : Utils.BusEventSystems.IEvent
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
+    public interface IBehaviorEvent : IEvent
     {
         string EventKey { get; }
         BlackboardSo Blackboard { get; }

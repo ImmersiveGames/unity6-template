@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.AdvancedTimers.Timers {
+namespace _ImmersiveGames.Scripts.AdvancedTimers {
     /// <summary>
     /// Timer that counts up from zero to infinity.  Great for measuring durations.
     /// </summary>

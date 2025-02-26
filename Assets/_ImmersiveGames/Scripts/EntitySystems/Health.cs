@@ -1,5 +1,6 @@
-﻿using _ImmersiveGames.Scripts.Utils.ChannelEventSystems.Channels;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+﻿
+using _ImmersiveGames.Scripts.ChannelEventSystems;
+using _ImmersiveGames.Scripts.DebugSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.EntitySystems {

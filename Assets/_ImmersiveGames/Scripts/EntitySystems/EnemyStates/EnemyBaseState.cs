@@ -1,8 +1,8 @@
-﻿using _ImmersiveGames.Scripts.SMSystem.Interface;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+﻿using _ImmersiveGames.Scripts.DebugSystems;
+using _ImmersiveGames.Scripts.SMSystem;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
+namespace _ImmersiveGames.Scripts.EntitySystems {
     public abstract class EnemyBaseState : IState {
         protected readonly Enemy Enemy;
         protected readonly Animator Animator;

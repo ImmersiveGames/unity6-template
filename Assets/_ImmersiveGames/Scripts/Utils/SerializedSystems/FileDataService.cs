@@ -5,22 +5,22 @@ using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
     public class FileDataService : IDataService {
-        ISerializer serializer;
-        string dataPath;
-        string fileExtension;
+        private readonly ISerializer serializer;
+        private readonly string dataPath;
+        private readonly string fileExtension;
 
         public FileDataService(ISerializer serializer) {
-            this.dataPath = Application.persistentDataPath;
-            this.fileExtension = "json";
+            dataPath = Application.persistentDataPath;
+            fileExtension = "json";
             this.serializer = serializer;
         }
 
-        string GetPathToFile(string fileName) {
+        private string GetPathToFile(string fileName) {
             return Path.Combine(dataPath, string.Concat(fileName, ".", fileExtension));
         }
         
         public void Save(GameData data, bool overwrite = true) {
-            string fileLocation = GetPathToFile(data.name);
+            var fileLocation = GetPathToFile(data.name);
 
             if (!overwrite && File.Exists(fileLocation)) {
                 throw new IOException($"The file '{data.name}.{fileExtension}' already exists and cannot be overwritten.");
@@ -30,7 +30,7 @@ namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
         }
 
         public GameData Load(string name) {
-            string fileLocation = GetPathToFile(name);
+            var fileLocation = GetPathToFile(name);
 
             if (!File.Exists(fileLocation)) {
                 throw new ArgumentException($"No persisted GameData with name '{name}'");
@@ -40,7 +40,7 @@ namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
         }
 
         public void Delete(string name) {
-            string fileLocation = GetPathToFile(name);
+            var fileLocation = GetPathToFile(name);
 
             if (File.Exists(fileLocation)) {
                 File.Delete(fileLocation);
@@ -48,13 +48,13 @@ namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
         }
 
         public void DeleteAll() {
-            foreach (string filePath in Directory.GetFiles(dataPath)) {
+            foreach (var filePath in Directory.GetFiles(dataPath)) {
                 File.Delete(filePath);
             }
         }
 
         public IEnumerable<string> ListSaves() {
-            foreach (string path in Directory.EnumerateFiles(dataPath)) {
+            foreach (var path in Directory.EnumerateFiles(dataPath)) {
                 if (Path.GetExtension(path) == fileExtension) {
                     yield return Path.GetFileNameWithoutExtension(path);
                 }

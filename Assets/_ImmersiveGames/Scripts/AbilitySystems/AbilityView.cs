@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _ImmersiveGames.Scripts.DebugSystems;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,7 @@ namespace _ImmersiveGames.Scripts.AbilitySystems {
         private void Awake() {
             for (var i = 0; i < buttons.Length; i++) {
                 if (i >= keys.Length) {
-                    Debug.LogError("Not enough keycodes for the number of buttons.");
+                    DebugManager.LogError<AbilityView>("Not enough keycodes for the number of buttons.");
                     break;
                 }
                 buttons[i].Initialize(i, keys[i]);

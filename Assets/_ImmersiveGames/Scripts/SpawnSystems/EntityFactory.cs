@@ -1,5 +1,4 @@
 ﻿using _ImmersiveGames.Scripts.EntitySystems;
-using _ImmersiveGames.Scripts.SpawnSystems.Interface;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.SpawnSystems {

@@ -133,7 +133,7 @@ namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
         /// <typeparam name="T">Tipo do objeto na cena.</typeparam>
         /// <typeparam name="TData">Tipo dos dados salvos.</typeparam>
         /// <param name="data">Dados a serem vinculados.</param>
-        void Bind<T, TData>(TData data) where T : MonoBehaviour, IBind<TData> where TData : ISaveable, new() {
+        private void Bind<T, TData>(TData data) where T : MonoBehaviour, IBind<TData> where TData : ISaveable, new() {
             var entity = FindObjectsByType<T>(FindObjectsSortMode.None).FirstOrDefault();
             if (entity != null) {
                 if (data == null) {
@@ -149,7 +149,7 @@ namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
         /// <typeparam name="T">Tipo do objeto na cena.</typeparam>
         /// <typeparam name="TData">Tipo dos dados salvos.</typeparam>
         /// <param name="datas">Lista de dados a serem vinculados.</param>
-        void Bind<T, TData>(List<TData> datas) where T: MonoBehaviour, IBind<TData> where TData : ISaveable, new() {
+        private void Bind<T, TData>(List<TData> datas) where T: MonoBehaviour, IBind<TData> where TData : ISaveable, new() {
             var entities = FindObjectsByType<T>(FindObjectsSortMode.None);
 
             foreach(var entity in entities) {
@@ -185,7 +185,7 @@ namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
         public void LoadGame(string gameName) {
             gameData = dataService.Load(gameName);
 
-            if (String.IsNullOrWhiteSpace(gameData.currentLevelName)) {
+            if (string.IsNullOrWhiteSpace(gameData.currentLevelName)) {
                 gameData.currentLevelName = "Demo";
             }
 

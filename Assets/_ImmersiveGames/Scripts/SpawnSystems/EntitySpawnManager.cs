@@ -1,6 +1,4 @@
-﻿using _ImmersiveGames.Scripts.SpawnSystems.Interface;
-using _ImmersiveGames.Scripts.SpawnSystems.Strategy;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.SpawnSystems {
     public abstract class EntitySpawnManager : MonoBehaviour {

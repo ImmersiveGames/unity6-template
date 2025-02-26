@@ -1,4 +1,4 @@
-﻿using _ImmersiveGames.Scripts.AdvancedTimers.Timers;
+﻿using _ImmersiveGames.Scripts.DebugSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.AdvancedTimers
@@ -12,12 +12,12 @@ namespace _ImmersiveGames.Scripts.AdvancedTimers
         private void Start()
         {
             _timer = new CountdownTimer(timeDuration);
-            _timer.OnTimerStart += () => { Debug.Log("Timer Start"); };
-            _timer.OnTimerStop += () => { Debug.Log("Timer Stopped"); };
+            _timer.OnTimerStart += () => { DebugManager.Log<TimerTests>("Timer Start"); };
+            _timer.OnTimerStop += () => { DebugManager.Log<TimerTests>("Timer Stopped"); };
             _timer.Start();
             _timer2 = new CountdownTimer(timeDuration2);
-            _timer2.OnTimerStart += () => { Debug.Log("Timer2 Start"); };
-            _timer2.OnTimerStop += () => { Debug.Log("Timer2 Stopped"); };
+            _timer2.OnTimerStart += () => { DebugManager.Log<TimerTests>("Timer2 Start"); };
+            _timer2.OnTimerStop += () => { DebugManager.Log<TimerTests>("Timer2 Stopped"); };
             _timer2.Start();
         }
 

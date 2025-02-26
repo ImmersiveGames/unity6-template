@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.EntitySystems.Plataformas {
+namespace _ImmersiveGames.Scripts.EntitySystems {
     public class PlatformMover : MonoBehaviour {
         [SerializeField] private Vector3 moveTo = Vector3.zero;
         [SerializeField] private float moveTime = 1f;

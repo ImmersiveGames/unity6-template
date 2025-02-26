@@ -1,6 +1,4 @@
-﻿using _ImmersiveGames.Scripts.StatesModifiers.Interfaces;
-
-namespace _ImmersiveGames.Scripts.StatesModifiers.Strategies {
+﻿namespace _ImmersiveGames.Scripts.StatesModifiers {
     public class MultiplyOperation : IOperationStrategy {
         private readonly int operationValue;
 

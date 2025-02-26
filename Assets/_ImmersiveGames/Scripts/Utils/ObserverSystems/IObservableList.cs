@@ -5,7 +5,6 @@ namespace _ImmersiveGames.Scripts.Utils.ObserverSystems {
     /// Initializes a new instance of the ObservableList class that is empty
     /// or contains elements copied from the specified list.
     /// </summary>
-    /// <param name="initialList"> The list to copy elements from. </param>    
     public interface IObservableList<T> {
         /// <summary>
         /// Adds an item to the ObservableList.

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _ImmersiveGames.Scripts.AdvancedTimers.Timers;
+using _ImmersiveGames.Scripts.AdvancedTimers;
 using UnityEngine.Events;
 
 namespace _ImmersiveGames.Scripts.AbilitySystems {

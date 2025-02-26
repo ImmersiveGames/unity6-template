@@ -1,5 +1,4 @@
-﻿using _ImmersiveGames.Scripts.Utils.DebugSystems;
-using _ImmersiveGames.Scripts.Utils.DependencyInjectSystem.Interface;
+﻿using _ImmersiveGames.Scripts.DebugSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.Utils.DependencyInjectSystem.Tests {

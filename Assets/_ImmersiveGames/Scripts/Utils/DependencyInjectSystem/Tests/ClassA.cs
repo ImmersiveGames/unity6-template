@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.Utils.DependencyInjectSystem.Tests {
     public class ClassA : MonoBehaviour {

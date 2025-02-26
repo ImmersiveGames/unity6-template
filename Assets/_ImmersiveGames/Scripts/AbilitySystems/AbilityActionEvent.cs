@@ -1,4 +1,4 @@
-﻿using _ImmersiveGames.Scripts.Utils.BusEventSystems;
+﻿using _ImmersiveGames.Scripts.BusEventSystems;
 
 namespace _ImmersiveGames.Scripts.AbilitySystems {
     public struct AbilityActionEvent : IEvent {

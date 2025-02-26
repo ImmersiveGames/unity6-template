@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using _ImmersiveGames.Scripts.Utils.BusEventSystems;
+﻿using _ImmersiveGames.Scripts.BusEventSystems;
+using _ImmersiveGames.Scripts.DebugSystems;
+using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.AbilitySystems {
     public class AbilityActionHandler : MonoBehaviour {
@@ -18,7 +19,7 @@ namespace _ImmersiveGames.Scripts.AbilitySystems {
 
         private void OnAbilityAction(AbilityActionEvent evt) {
             // Log básico para depuração
-            Debug.Log($"Habilidade '{evt.AbilityData.fullName}' (índice {evt.AbilityIndex}) ativada por {evt.Source ?? "desconhecido"}!");
+            DebugManager.Log<AbilityActionHandler>($"Habilidade '{evt.AbilityData.fullName}' (índice {evt.AbilityIndex}) ativada por {evt.Source ?? "desconhecido"}!");
 
             // Exemplo: Disparar animação (mantendo compatibilidade com PlayerAnimationEvent)
             if (evt.AbilityData.animationClip != null) {

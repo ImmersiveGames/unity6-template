@@ -1,21 +1,18 @@
-﻿using _ImmersiveGames.Scripts.Utils.GoapSystem;
-using IActionStrategy = _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes.IActionStrategy;
-
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+﻿namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     public class GenericActionNode : IBehaviorNode
     {
         private readonly IActionStrategy strategy;
-        public readonly BlackboardSo blackboard;
+        public readonly BlackboardSo Blackboard;
 
         public GenericActionNode(BlackboardSo blackboard, IActionStrategy strategy)
         {
-            this.blackboard = blackboard;
+            Blackboard = blackboard;
             this.strategy = strategy;
         }
 
         public NodeState Execute()
         {
-            return strategy.Execute(blackboard);
+            return strategy.Execute(Blackboard);
         }
     }
 }

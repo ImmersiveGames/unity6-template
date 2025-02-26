@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     [CreateAssetMenu(fileName = "HasTargetCondition", menuName = "ImmersiveGames/Behavior/Strategies/Condition/HasTarget")]
     public class HasTargetCondition : ConditionStrategySo
     {

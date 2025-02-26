@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+﻿using _ImmersiveGames.Scripts.DebugSystems;
+using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     [CreateAssetMenu(fileName = "CompareValueCondition", menuName = "ImmersiveGames/Behavior/Strategies/Condition/CompareValue")]
     public class CompareValueCondition : ConditionStrategySo

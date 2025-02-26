@@ -1,7 +1,5 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Events;
-using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
-using _ImmersiveGames.Scripts.Utils.BusEventSystems;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+﻿using _ImmersiveGames.Scripts.BusEventSystems;
+using _ImmersiveGames.Scripts.DebugSystems;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

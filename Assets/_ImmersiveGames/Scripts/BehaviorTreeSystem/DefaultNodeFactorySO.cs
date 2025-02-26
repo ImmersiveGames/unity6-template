@@ -1,6 +1,6 @@
 ﻿using System;
+using _ImmersiveGames.Scripts.BehaviorTreeSystem._ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
 using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
-using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes._ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
@@ -13,8 +13,8 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
             switch (nodeType)
             {
                 case BehaviorNodeType.Action:
-                    return config.Strategy != null
-                        ? new GenericActionNode(blackboard, config.Strategy)
+                    return config.strategy != null
+                        ? new GenericActionNode(blackboard, config.strategy)
                         : null;
 
                 case BehaviorNodeType.Sequence:
@@ -24,25 +24,25 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
                     return new Selector();
 
                 case BehaviorNodeType.RandomSelector:
-                    return new RandomSelector(config.MaxTimes);
+                    return new RandomSelector(config.maxTimes);
 
                 case BehaviorNodeType.Parallel:
-                    return new Parallel(config.RequireAllSuccess, config.InterruptOnSuccess);
+                    return new Parallel(config.requireAllSuccess, config.interruptOnSuccess);
 
                 case BehaviorNodeType.Repeat:
-                    return config.Strategy != null
-                        ? new Repeat(new GenericActionNode(blackboard, config.Strategy), config.RepeatTimes)
+                    return config.strategy != null
+                        ? new Repeat(new GenericActionNode(blackboard, config.strategy), config.repeatTimes)
                         : null;
 
                 case BehaviorNodeType.Animate:
-                    return config.Strategy != null
-                        ? new AnimationDecorator(new GenericActionNode(blackboard, config.Strategy),
-                            config.AnimationTrigger, config.Duration)
+                    return config.strategy != null
+                        ? new AnimationDecorator(new GenericActionNode(blackboard, config.strategy),
+                            config.animationTrigger, config.duration)
                         : null;
 
                 case BehaviorNodeType.Delay:
-                    return config.Strategy != null
-                        ? new DelayDecorator(new GenericActionNode(blackboard, config.Strategy), config.Delay)
+                    return config.strategy != null
+                        ? new DelayDecorator(new GenericActionNode(blackboard, config.strategy), config.delay)
                         : null;
 
                 case BehaviorNodeType.Condition:
@@ -59,13 +59,13 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 
                 case BehaviorNodeType.RepeatWhile:
                     return new RepeatWhileDecorator(
-                        config.Children.Count > 0 ? config.Children[0].Build(blackboard, this) : null,
-                        config.RepeatCondition, blackboard);
+                        config.children.Count > 0 ? config.children[0].Build(blackboard, this) : null,
+                        config.repeatCondition, blackboard);
 
                 case BehaviorNodeType.Restart:
                     return new RestartDecorator(
-                        config.Children.Count > 0 ? config.Children[0].Build(blackboard, this) : null,
-                        config.RepeatCondition, blackboard);
+                        config.children.Count > 0 ? config.children[0].Build(blackboard, this) : null,
+                        config.repeatCondition, blackboard);
 
                 case BehaviorNodeType.RandomSequence:
                     return new RandomSequence();
@@ -80,34 +80,34 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 
         private IBehaviorNode BuildConditionNode(NodeConfig config, BlackboardSo blackboard)
         {
-            var successNode = config.Children.Count > 0 ? config.Children[0].Build(blackboard, this) : null;
-            var failureNode = config.Children.Count > 1 ? config.Children[1].Build(blackboard, this) : null;
-            return new ConditionNode(config.Condition, successNode, failureNode, blackboard);
+            var successNode = config.children.Count > 0 ? config.children[0].Build(blackboard, this) : null;
+            var failureNode = config.children.Count > 1 ? config.children[1].Build(blackboard, this) : null;
+            return new ConditionNode(config.condition, successNode, failureNode, blackboard);
         }
 
         private IBehaviorNode BuildEventReactiveNode(NodeConfig config, BlackboardSo blackboard)
         {
-            var successNode = config.Children.Count > 0 ? config.Children[0].Build(blackboard, this) : null;
-            var failureNode = config.Children.Count > 1 ? config.Children[1].Build(blackboard, this) : null;
-            return new EventReactiveNode(config.EventKey, successNode, failureNode);
+            var successNode = config.children.Count > 0 ? config.children[0].Build(blackboard, this) : null;
+            var failureNode = config.children.Count > 1 ? config.children[1].Build(blackboard, this) : null;
+            return new EventReactiveNode(config.eventKey, successNode, failureNode);
         }
 
         private IBehaviorNode BuildGlobalConditionNode(NodeConfig config, BlackboardSo blackboard)
         {
-            var overrideNode = config.Children.Count > 0 ? config.Children[0].Build(blackboard, this) : null;
+            var overrideNode = config.children.Count > 0 ? config.children[0].Build(blackboard, this) : null;
             return new GlobalConditionDecorator(
-                new GenericActionNode(blackboard, config.Strategy),
-                config.Condition,
+                new GenericActionNode(blackboard, config.strategy),
+                config.condition,
                 overrideNode,
                 blackboard);
         }
 
         private IBehaviorNode BuildParallelConditionNode(NodeConfig config, BlackboardSo blackboard)
         {
-            var parallelAction = config.Children.Count > 0 ? config.Children[0].Build(blackboard, this) : null;
+            var parallelAction = config.children.Count > 0 ? config.children[0].Build(blackboard, this) : null;
             return new ParallelConditionDecorator(
-                new GenericActionNode(blackboard, config.Strategy),
-                config.Condition,
+                new GenericActionNode(blackboard, config.strategy),
+                config.condition,
                 parallelAction,
                 blackboard);
         }

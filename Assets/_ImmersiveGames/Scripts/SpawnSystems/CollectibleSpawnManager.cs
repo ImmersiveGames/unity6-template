@@ -1,4 +1,4 @@
-﻿using _ImmersiveGames.Scripts.AdvancedTimers.Timers;
+﻿using _ImmersiveGames.Scripts.AdvancedTimers;
 using _ImmersiveGames.Scripts.EntitySystems;
 using UnityEngine;
 

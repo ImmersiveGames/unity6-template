@@ -1,6 +1,4 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies;
-
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+﻿namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     public class ConditionNode : IBehaviorNode
     {
         private readonly IConditionStrategy condition;

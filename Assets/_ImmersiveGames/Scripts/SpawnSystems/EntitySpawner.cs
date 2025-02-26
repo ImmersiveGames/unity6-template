@@ -1,6 +1,4 @@
 ﻿using _ImmersiveGames.Scripts.EntitySystems;
-using _ImmersiveGames.Scripts.SpawnSystems.Interface;
-
 namespace _ImmersiveGames.Scripts.SpawnSystems {
     public class EntitySpawner<T> where T : Entity {
         private readonly IEntityFactory<T> _entityFactory;

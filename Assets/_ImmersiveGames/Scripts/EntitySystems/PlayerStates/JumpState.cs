@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.EntitySystems.PlayerStates {
+namespace _ImmersiveGames.Scripts.EntitySystems {
     public class JumpState  : BaseState {
         public JumpState(PlayerController player, Animator animator) : base(player, animator) { }
         public override void OnEnter() {

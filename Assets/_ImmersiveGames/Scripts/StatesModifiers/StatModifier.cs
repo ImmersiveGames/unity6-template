@@ -1,6 +1,5 @@
 ﻿using System;
-using _ImmersiveGames.Scripts.AdvancedTimers.Timers;
-using _ImmersiveGames.Scripts.StatesModifiers.Interfaces;
+using _ImmersiveGames.Scripts.AdvancedTimers;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.StatesModifiers {

@@ -1,8 +1,6 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
+﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies {
-    using UnityEngine;
-
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     [CreateAssetMenu(fileName = "MoveToTargetStrategy", menuName = "ImmersiveGames/Behavior/Strategies/MoveToTarget")]
     public class MoveToTargetStrategySo : ActionStrategySo
     {
@@ -13,7 +11,7 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies {
         {
             if (blackboard.Target == null || blackboard.Owner == null) return NodeState.Failure;
 
-            Vector3 direction = (blackboard.Target.position - blackboard.Position).normalized;
+            var direction = (blackboard.Target.position - blackboard.Position).normalized;
             blackboard.Position += direction * speed * Time.deltaTime;
             blackboard.Owner.transform.position = blackboard.Position;
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+using _ImmersiveGames.Scripts.DebugSystems;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     public class SequenceNode : ICompositeNode
     {
@@ -19,14 +19,19 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
                 var state = child.Execute();
                 DebugManager.Log<SequenceNode>($"Child returned state: {state}");
 
-                if (state != NodeState.Success)
-                {
-                    if (state == NodeState.Failure)
+                switch (state) {
+                    case NodeState.Success:
+                        continue;
+                    case NodeState.Failure:
                         DebugManager.LogWarning<SequenceNode>("Sequence interrupted due to child failure");
-                    else
+                        break;
+                    case NodeState.Running:
+                    default:
                         DebugManager.LogVerbose<SequenceNode>("Sequence paused due to Running state");
-                    return state;
+                        break;
                 }
+
+                return state;
             }
             DebugManager.Log<SequenceNode>("Sequence completed successfully");
             return NodeState.Success;

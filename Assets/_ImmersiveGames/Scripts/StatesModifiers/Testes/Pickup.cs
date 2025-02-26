@@ -1,4 +1,5 @@
-﻿using _ImmersiveGames.Scripts.Utils.MediatorSystems;
+﻿using _ImmersiveGames.Scripts.DebugSystems;
+using _ImmersiveGames.Scripts.Utils.MediatorSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.StatesModifiers.Testes {
@@ -14,7 +15,7 @@ namespace _ImmersiveGames.Scripts.StatesModifiers.Testes {
 
         public void OnTriggerEnter(Collider other) {
             other.GetComponent<IVisitable>()?.Accept(this);
-            Debug.Log("Picked up " + name);
+            DebugManager.Log<Pickup>("Picked up " + name);
             Destroy(gameObject); //melhor mudar para pool
         }
     }

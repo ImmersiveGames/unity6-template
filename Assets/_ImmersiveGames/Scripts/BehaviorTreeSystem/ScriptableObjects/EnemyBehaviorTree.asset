@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackboard: {fileID: 11400000, guid: a1ab96016c28ee440b3d9c0812050316, type: 2}
   rootNodes:
-  - NodeType: 11
-    Strategy: {fileID: 0}
+  - NodeType: 0
+    Strategy: {fileID: 11400000, guid: ccf7848be1a444843807f6c9475ca615, type: 2}
     RepeatTimes: 1
     Duration: 1
     MaxTimes: 1

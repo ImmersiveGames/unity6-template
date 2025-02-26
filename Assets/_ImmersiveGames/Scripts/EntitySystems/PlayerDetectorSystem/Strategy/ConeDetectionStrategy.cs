@@ -1,7 +1,7 @@
-﻿using _ImmersiveGames.Scripts.AdvancedTimers.Timers;
+﻿using _ImmersiveGames.Scripts.AdvancedTimers;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.EntitySystems.PlayerDetectorSystem.Strategy {
+namespace _ImmersiveGames.Scripts.EntitySystems.PlayerDetectorSystem {
     public class ConeDetectionStrategy : IDetectionStrategy {
         private readonly float _detectionAngle;
         private readonly float _detectionRadius;

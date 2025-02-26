@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.AdvancedTimers.Timers {
+namespace _ImmersiveGames.Scripts.AdvancedTimers {
     /// <summary>
     /// Timer that counts down from a specific value to zero.
     /// </summary>

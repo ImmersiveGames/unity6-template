@@ -1,4 +1,6 @@
-﻿namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
+
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     public class Repeat : IDecoratorNode
     {
         public IBehaviorNode Child { get; set; }
@@ -19,7 +21,7 @@
                 return NodeState.Success;
             }
 
-            NodeState state = Child.Execute();
+            var state = Child.Execute();
             if (state == NodeState.Success) currentIteration++;
             return state == NodeState.Failure ? NodeState.Failure : NodeState.Running;
         }

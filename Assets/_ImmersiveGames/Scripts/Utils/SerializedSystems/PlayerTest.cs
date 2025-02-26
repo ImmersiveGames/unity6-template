@@ -1,7 +1,5 @@
-﻿using System;
-using _ImmersiveGames.Scripts.Utils.Helpers;
+﻿using _ImmersiveGames.Scripts.Utils.Helpers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _ImmersiveGames.Scripts.Utils.SerializedSystems {
     public class PlayerTest : MonoBehaviour, IBind<PlayerData> {

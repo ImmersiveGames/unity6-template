@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _ImmersiveGames.Scripts.SpawnSystems.Interface;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.SpawnSystems.Strategy {
+namespace _ImmersiveGames.Scripts.SpawnSystems {
     public class RandomSpawnPointStrategy : ISpawnPointStrategy {
         private List<Transform> _unusedSpawnPoints;
         private readonly Transform[] _spawnPoints;

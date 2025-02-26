@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
+using _ImmersiveGames.Scripts.DebugSystems;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -40,7 +40,7 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 
             if (rootNodes == null || rootNodes.Count == 0)
             {
-                Debug.LogWarning("Nenhum nó raiz configurado no BehaviorTreeSo");
+                DebugManager.LogWarning<BehaviorTreeSo>("Nenhum nó raiz configurado no BehaviorTreeSo");
                 return sequence;
             }
 
@@ -48,14 +48,14 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
             {
                 if (nodeConfig == null)
                 {
-                    Debug.LogWarning("Configuração de nó raiz nula encontrada no BehaviorTreeSo");
+                    DebugManager.LogWarning<BehaviorTreeSo>("Configuração de nó raiz nula encontrada no BehaviorTreeSo");
                     continue;
                 }
 
                 var builtNode = nodeConfig.Build(effectiveBlackboard, nodeFactory);
                 if (builtNode == null)
                 {
-                    Debug.LogWarning($"Falha ao construir nó: {nodeConfig.NodeType}");
+                    DebugManager.LogWarning<BehaviorTreeSo>($"Falha ao construir nó: {nodeConfig.nodeType}");
                 }
                 else
                 {
@@ -71,7 +71,7 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
         {
             if (factory == null)
             {
-                Debug.LogError("Tentativa de definir um NodeFactory nulo no BehaviorTreeSo");
+                DebugManager.LogError<BehaviorTreeSo>("Tentativa de definir um NodeFactory nulo no BehaviorTreeSo");
                 return;
             }
             nodeFactory = factory;

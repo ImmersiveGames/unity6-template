@@ -1,4 +1,6 @@
-﻿namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
+﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
+
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     public class ParallelConditionDecorator : IDecoratorNode
     {

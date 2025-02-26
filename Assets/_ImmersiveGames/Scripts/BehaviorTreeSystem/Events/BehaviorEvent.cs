@@ -1,6 +1,6 @@
 ﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Events
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     public class BehaviorEvent : IBehaviorEvent
     {

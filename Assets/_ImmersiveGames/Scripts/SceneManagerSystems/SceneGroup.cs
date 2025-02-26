@@ -7,22 +7,22 @@ namespace _ImmersiveGames.Scripts.SceneManagerSystems {
     namespace Systems.SceneManagement {
         [Serializable]
         public class SceneGroup {
-            public string GroupName = "New Scene Group";
-            public List<SceneData> Scenes;
+            public string groupName = "New Scene Group";
+            public List<SceneData> scenes;
         
             public string FindSceneNameByType(SceneType sceneType) {
-                return Scenes.FirstOrDefault(scene => scene.SceneType == sceneType)?.Reference.Name;
+                return scenes.FirstOrDefault(scene => scene.sceneType == sceneType)?.reference.Name;
             }
         }
     
         [Serializable]
         public class SceneData {
-            public SceneReference Reference;
-            public string Name => Reference.Name;
-            public SceneType SceneType;
+            public SceneReference reference;
+            public string Name => reference.Name;
+            public SceneType sceneType;
         }
     
         //Adicionar as cenas usadas para referencia
-        public enum SceneType { ActiveScene, MainMenu, UserInterface, HUD, Cinematic, Environment, Tooling, TESTES }
+        public enum SceneType { ActiveScene, MainMenu, UserInterface, HUD, Cinematic, Environment, Tooling, Testes }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     public class RandomSequence : ICompositeNode
     {
@@ -31,18 +31,19 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
 
             while (currentIndex < children.Count)
             {
-                NodeState state = children[executionOrder[currentIndex]].Execute();
+                var state = children[executionOrder[currentIndex]].Execute();
 
-                if (state == NodeState.Running)
-                    return NodeState.Running;
-
-                if (state == NodeState.Failure)
-                {
-                    currentIndex = 0; // Reseta para próxima execução completa
-                    return NodeState.Failure;
+                switch (state) {
+                    case NodeState.Running:
+                        return NodeState.Running;
+                    case NodeState.Failure:
+                        currentIndex = 0; // Reseta para próxima execução completa
+                        return NodeState.Failure;
+                    case NodeState.Success:
+                    default:
+                        currentIndex++;
+                        break;
                 }
-
-                currentIndex++;
             }
 
             currentIndex = 0; // Reseta após completar todos

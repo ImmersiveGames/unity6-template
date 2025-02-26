@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     [CreateAssetMenu(fileName = "CustomValueCondition", menuName = "ImmersiveGames/Behavior/Strategies/Condition/CustomValue")]
     public class CustomValueCondition : ConditionStrategySo
     {

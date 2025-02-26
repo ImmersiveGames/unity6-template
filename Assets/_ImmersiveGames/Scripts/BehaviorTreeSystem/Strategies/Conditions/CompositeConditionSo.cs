@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+using _ImmersiveGames.Scripts.DebugSystems;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     [CreateAssetMenu(fileName = "CompositeCondition", menuName = "ImmersiveGames/Behavior/Strategies/Condition/Composite")]
     public class CompositeConditionSo : ConditionStrategySo
@@ -26,7 +26,7 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies
             {
                 result = conditions.All(c =>
                 {
-                    bool eval = c.Evaluate(blackboard);
+                    var eval = c.Evaluate(blackboard);
                     DebugManager.LogVerbose<CompositeConditionSo>($"Condition {c.name} evaluated to {eval}");
                     return eval;
                 });
@@ -35,7 +35,7 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies
             {
                 result = conditions.Any(c =>
                 {
-                    bool eval = c.Evaluate(blackboard);
+                    var eval = c.Evaluate(blackboard);
                     DebugManager.LogVerbose<CompositeConditionSo>($"Condition {c.name} evaluated to {eval}");
                     return eval;
                 });

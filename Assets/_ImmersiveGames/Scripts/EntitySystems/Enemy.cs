@@ -1,9 +1,6 @@
-﻿using _ImmersiveGames.Scripts.AdvancedTimers.Timers;
-using _ImmersiveGames.Scripts.EntitySystems.EnemyStates;
+﻿using _ImmersiveGames.Scripts.AdvancedTimers;
 using _ImmersiveGames.Scripts.EntitySystems.PlayerDetectorSystem;
 using _ImmersiveGames.Scripts.SMSystem;
-using _ImmersiveGames.Scripts.SMSystem.Interface;
-using _ImmersiveGames.Scripts.SMSystem.Predicates;
 using KBCore.Refs;
 using UnityEngine;
 using UnityEngine.AI;

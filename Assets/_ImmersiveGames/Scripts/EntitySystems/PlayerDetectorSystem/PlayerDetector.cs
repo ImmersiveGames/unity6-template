@@ -1,5 +1,4 @@
-﻿using _ImmersiveGames.Scripts.AdvancedTimers.Timers;
-using _ImmersiveGames.Scripts.EntitySystems.PlayerDetectorSystem.Strategy;
+﻿using _ImmersiveGames.Scripts.AdvancedTimers;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.EntitySystems.PlayerDetectorSystem {

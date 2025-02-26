@@ -1,18 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     public class RandomPersistentSelector : ICompositeNode
     {
-        private readonly List<IBehaviorNode> children = new List<IBehaviorNode>();
-        private List<int> remainingIndices;
+        private readonly List<IBehaviorNode> children = new();
+        private List<int> remainingIndices = new();
         private int currentIndex = -1;
-        private bool anySuccess = false;
-
-        public RandomPersistentSelector()
-        {
-            remainingIndices = new List<int>();
-        }
+        private bool anySuccess;
 
         public void AddChild(IBehaviorNode child)
         {
@@ -45,17 +41,23 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
             // Escolhe um novo filho aleatório se não estiver executando um
             if (currentIndex == -1)
             {
-                int randomChoice = UnityEngine.Random.Range(0, remainingIndices.Count);
+                var randomChoice = UnityEngine.Random.Range(0, remainingIndices.Count);
                 currentIndex = remainingIndices[randomChoice];
             }
 
-            NodeState state = children[currentIndex].Execute();
+            var state = children[currentIndex].Execute();
 
-            if (state == NodeState.Running)
-                return NodeState.Running;
-
-            if (state == NodeState.Success)
-                anySuccess = true;
+            switch (state) {
+                case NodeState.Running:
+                    return NodeState.Running;
+                case NodeState.Success:
+                    anySuccess = true;
+                    break;
+                case NodeState.Failure:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
             // Remove o filho atual, independentemente de sucesso ou falha
             remainingIndices.Remove(currentIndex);

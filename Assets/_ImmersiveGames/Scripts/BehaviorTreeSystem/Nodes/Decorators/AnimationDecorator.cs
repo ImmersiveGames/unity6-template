@@ -18,7 +18,7 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
 
         public NodeState Execute()
         {
-            var blackboard = (Child as GenericActionNode)?.blackboard;
+            var blackboard = (Child as GenericActionNode)?.Blackboard;
             if (blackboard?.Animator == null) return Child.Execute();
 
             if (!isRunning)
@@ -30,13 +30,10 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
             }
 
             elapsedTime += Time.deltaTime;
-            if (elapsedTime >= duration)
-            {
-                isRunning = false;
-                return Child.Execute();
-            }
+            if (!(elapsedTime >= duration)) return NodeState.Running;
+            isRunning = false;
+            return Child.Execute();
 
-            return NodeState.Running;
         }
     }
 }

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
+using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     public class DelayDecorator : IDecoratorNode
     {
         public IBehaviorNode Child { get; set; }

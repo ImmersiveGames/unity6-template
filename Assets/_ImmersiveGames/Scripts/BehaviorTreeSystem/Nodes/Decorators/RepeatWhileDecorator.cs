@@ -1,6 +1,6 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies;
+﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     public class RepeatWhileDecorator : IDecoratorNode
     {
         public IBehaviorNode Child { get; set; }
@@ -19,16 +19,12 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes {
             if (!condition.Evaluate(blackboard))
                 return NodeState.Success; // Para quando a condição é falsa
 
-            NodeState state = Child.Execute();
+            var state = Child.Execute();
 
-            if (state == NodeState.Running)
-                return NodeState.Running;
-
-            // Se o filho terminou (Success ou Failure), reinicia
-            if (state == NodeState.Success || state == NodeState.Failure)
-                return NodeState.Running; // Continua em Running enquanto a condição for verdadeira
-
-            return state; // Nunca deve chegar aqui, mas mantém segurança
+            return state switch {
+                NodeState.Running or NodeState.Success or NodeState.Failure => NodeState.Running,
+                _ => state
+            };
         }
     }
 }

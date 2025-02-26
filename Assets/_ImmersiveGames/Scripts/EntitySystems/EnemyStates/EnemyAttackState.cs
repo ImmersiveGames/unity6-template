@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace _ImmersiveGames.Scripts.EntitySystems.EnemyStates {
+namespace _ImmersiveGames.Scripts.EntitySystems {
     public class EnemyAttackState : EnemyBaseState {
         private readonly NavMeshAgent _agent;
         private readonly Transform _player;

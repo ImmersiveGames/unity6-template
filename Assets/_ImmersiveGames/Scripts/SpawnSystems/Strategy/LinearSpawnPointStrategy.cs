@@ -1,7 +1,6 @@
-﻿using _ImmersiveGames.Scripts.SpawnSystems.Interface;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.SpawnSystems.Strategy {
+namespace _ImmersiveGames.Scripts.SpawnSystems {
     public class LinearSpawnPointStrategy : ISpawnPointStrategy {
         private int _index;
         private readonly Transform[] _spawnPoints;

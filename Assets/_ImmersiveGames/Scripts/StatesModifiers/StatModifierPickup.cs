@@ -1,6 +1,5 @@
-﻿using _ImmersiveGames.Scripts.StatesModifiers.Interfaces;
+﻿using _ImmersiveGames.Scripts.ServiceLocatorSystems;
 using _ImmersiveGames.Scripts.StatesModifiers.Testes;
-using _ImmersiveGames.Scripts.Utils.ServiceLocatorSystems;
 using UnityEngine;
 
 namespace _ImmersiveGames.Scripts.StatesModifiers {
@@ -12,12 +11,12 @@ namespace _ImmersiveGames.Scripts.StatesModifiers {
     [RequireComponent(typeof(AudioSource))]
     public class StatModifierPickup : Pickup {
         // TODO Move configuration to ScriptableObject
-        [SerializeField] StatType type = StatType.Attack;
-        [SerializeField] OperatorType operatorType = OperatorType.Add;
-        [SerializeField] int value = 10;
-        [SerializeField] float duration = 5f;
+        [SerializeField] private StatType type = StatType.Attack;
+        [SerializeField] private OperatorType operatorType = OperatorType.Add;
+        [SerializeField] private int value = 10;
+        [SerializeField] private float duration = 5f;
 
-        IStatModifierFactory statModifierFactory;
+        private IStatModifierFactory statModifierFactory;
 
         protected override void ApplyPickupEffect(Entity entity) {
             var modifier = ServiceLocator.For(this).Get<IStatModifierFactory>().Create(operatorType, type, value, duration);

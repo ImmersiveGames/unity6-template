@@ -1,3 +1,3 @@
-﻿namespace _ImmersiveGames.Scripts.Utils.DependencyInjectSystem.Interface {
+﻿namespace _ImmersiveGames.Scripts.Utils.DependencyInjectSystem {
     public interface IDependencyProvider{}
 }

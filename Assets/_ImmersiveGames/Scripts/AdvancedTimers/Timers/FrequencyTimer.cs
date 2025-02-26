@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.AdvancedTimers.Timers {
+namespace _ImmersiveGames.Scripts.AdvancedTimers {
     /// <summary>
     /// Timer that ticks at a specific frequency. (N times per second)
     /// </summary>
     public class FrequencyTimer : Timer {
         private int TicksPerSecond { get; set; }
 
-        public Action OnTick = delegate { };
+        private readonly Action _onTick = delegate { };
 
         private float _timeThreshold;
 
@@ -19,7 +19,7 @@ namespace _ImmersiveGames.Scripts.AdvancedTimers.Timers {
         public override void Tick() {
             if (IsRunning && CurrentTime >= _timeThreshold) {
                 CurrentTime -= _timeThreshold;
-                OnTick.Invoke();
+                _onTick.Invoke();
             }
 
             if (IsRunning && CurrentTime < _timeThreshold) {

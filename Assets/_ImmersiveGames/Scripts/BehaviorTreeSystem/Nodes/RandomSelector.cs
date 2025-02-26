@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     public class RandomSelector : ICompositeNode
     {
-        private readonly List<IBehaviorNode> children = new List<IBehaviorNode>();
+        private readonly List<IBehaviorNode> children = new();
         private readonly int maxTimes;
         private int currentChildIndex = -1; // -1 significa que ainda não escolheu um filho
-        private int attempts = 0;
+        private int attempts;
 
         public RandomSelector(int maxTimes)
         {
@@ -36,21 +36,21 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
                 return NodeState.Failure;
             }
 
-            NodeState state = children[currentChildIndex].Execute();
+            var state = children[currentChildIndex].Execute();
 
-            if (state == NodeState.Running)
-                return NodeState.Running;
-
-            if (state == NodeState.Success)
-            {
-                currentChildIndex = -1; // Reseta para próxima execução completa
-                attempts = 0;
-                return NodeState.Success;
+            switch (state) {
+                case NodeState.Running:
+                    return NodeState.Running;
+                case NodeState.Success:
+                    currentChildIndex = -1; // Reseta para próxima execução completa
+                    attempts = 0;
+                    return NodeState.Success;
+                case NodeState.Failure:
+                default:
+                    // Se falhou, escolhe outro na próxima execução
+                    currentChildIndex = -1;
+                    return NodeState.Running; // Continua tentando até maxTimes
             }
-
-            // Se falhou, escolhe outro na próxima execução
-            currentChildIndex = -1;
-            return NodeState.Running; // Continua tentando até maxTimes
         }
     }
 }

@@ -5,7 +5,7 @@
 // - Vantagens: Combina flexibilidade do evento centralizado com a separação clara de múltiplos eventos.
 // - Prompt para recordar: "Implementar solução híbrida de eventos para o sistema de habilidades com AbilityActionDispatcher."
 
-using _ImmersiveGames.Scripts.Utils.BusEventSystems;
+using _ImmersiveGames.Scripts.BusEventSystems;
 
 namespace _ImmersiveGames.Scripts.AbilitySystems {
     public class AbilityCommand : ICommand {

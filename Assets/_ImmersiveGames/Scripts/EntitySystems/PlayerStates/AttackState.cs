@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.EntitySystems.PlayerStates {
+namespace _ImmersiveGames.Scripts.EntitySystems {
     public class AttackState : BaseState {
         public AttackState(PlayerController player, Animator animator) : base(player, animator) { }
 

@@ -1,8 +1,7 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Events;
-using _ImmersiveGames.Scripts.Utils.BusEventSystems;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+﻿using _ImmersiveGames.Scripts.BusEventSystems;
+using _ImmersiveGames.Scripts.DebugSystems;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     public class EventReactiveNode : IBehaviorNode
     {

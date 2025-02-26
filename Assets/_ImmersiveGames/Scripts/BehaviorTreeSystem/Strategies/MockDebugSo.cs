@@ -1,8 +1,7 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
-using _ImmersiveGames.Scripts.Utils.Extensions;
+﻿using _ImmersiveGames.Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     [CreateAssetMenu(fileName = "MockStrategy", menuName = "ImmersiveGames/Behavior/Strategies/Debug")]
     public class MockDebugSo : ActionStrategySo {
         [SerializeField] public string text;

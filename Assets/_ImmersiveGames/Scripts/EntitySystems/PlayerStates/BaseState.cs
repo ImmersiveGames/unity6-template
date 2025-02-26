@@ -1,8 +1,8 @@
-﻿using _ImmersiveGames.Scripts.SMSystem.Interface;
-using _ImmersiveGames.Scripts.Utils.DebugSystems;
+﻿using _ImmersiveGames.Scripts.DebugSystems;
+using _ImmersiveGames.Scripts.SMSystem;
 using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.EntitySystems.PlayerStates {
+namespace _ImmersiveGames.Scripts.EntitySystems {
     public abstract class BaseState: IState {
         protected readonly PlayerController Player;
         protected readonly Animator Animator;

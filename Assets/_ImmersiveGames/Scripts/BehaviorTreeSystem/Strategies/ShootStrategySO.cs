@@ -1,7 +1,6 @@
-﻿using _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies {
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem {
     [CreateAssetMenu(fileName = "ShootStrategy", menuName = "ImmersiveGames/Behavior/Strategies/Shoot")]
     public class ShootStrategySo :ActionStrategySo
     {
@@ -15,8 +14,8 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Strategies {
             if (Time.time < lastShot + cooldown || blackboard.Owner == null || projectilePrefab == null)
                 return NodeState.Running;
 
-            Transform spawnPoint = blackboard.SpawnPoint ?? blackboard.Owner.transform;
-            Vector3 direction = blackboard.Target != null
+            var spawnPoint = blackboard.SpawnPoint ?? blackboard.Owner.transform;
+            var direction = blackboard.Target != null
                 ? (blackboard.Target.position - spawnPoint.position).normalized
                 : spawnPoint.forward;
 

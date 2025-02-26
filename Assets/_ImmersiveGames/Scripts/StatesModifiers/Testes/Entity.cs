@@ -1,4 +1,5 @@
-﻿using _ImmersiveGames.Scripts.Utils.MediatorSystems;
+﻿using _ImmersiveGames.Scripts.DebugSystems;
+using _ImmersiveGames.Scripts.Utils.MediatorSystems;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace _ImmersiveGames.Scripts.StatesModifiers.Testes {
 
         public void Update() {
             Stats.Mediator.Update();
-            Debug.Log($"States: {Stats.Attack}, {Stats.Defense}");
+            DebugManager.Log<Entity>($"States: {Stats.Attack}, {Stats.Defense}");
         }
 
         public void Accept(IVisitor visitor) => visitor.Visit(this);

@@ -33,7 +33,7 @@ namespace _ImmersiveGames.Scripts.SceneManagerSystems {
 #endif
         
         /// <summary> Cena ativa no momento. </summary>
-        SceneGroup ActiveSceneGroup;
+        private SceneGroup _activeSceneGroup;
         
         /// <summary>
         /// Carrega um grupo de cenas de forma assíncrona.
@@ -42,27 +42,27 @@ namespace _ImmersiveGames.Scripts.SceneManagerSystems {
         /// <param name="progress">Progresso do carregamento.</param>
         /// <param name="reloadDupScenes">Se verdadeiro, recarrega cenas duplicadas.</param>
         public async Task LoadScenes(SceneGroup group, IProgress<float> progress, bool reloadDupScenes = false) { 
-            ActiveSceneGroup = group;
+            _activeSceneGroup = group;
             var loadedScenes = new List<string>();
 
             await UnloadScenes();
 
-            int sceneCount = SceneManager.sceneCount;
+            var sceneCount = SceneManager.sceneCount;
             
             for (var i = 0; i < sceneCount; i++) {
                 loadedScenes.Add(SceneManager.GetSceneAt(i).name);
             }
 
-            var totalScenesToLoad = ActiveSceneGroup.Scenes.Count;
+            var totalScenesToLoad = _activeSceneGroup.scenes.Count;
             var operationGroup = new AsyncOperationGroup(totalScenesToLoad);
 
             for (var i = 0; i < totalScenesToLoad; i++) {
-                var sceneData = group.Scenes[i];
+                var sceneData = group.scenes[i];
 
                 if (!reloadDupScenes && loadedScenes.Contains(sceneData.Name)) continue;
                 
-                if (sceneData.Reference.State == SceneReferenceState.Regular) {
-                    var operation = SceneManager.LoadSceneAsync(sceneData.Reference.Path, LoadSceneMode.Additive);
+                if (sceneData.reference.State == SceneReferenceState.Regular) {
+                    var operation = SceneManager.LoadSceneAsync(sceneData.reference.Path, LoadSceneMode.Additive);
                     operationGroup.Operations.Add(operation);
                 } 
 #if UNITY_ADDRESSABLES
@@ -88,7 +88,7 @@ namespace _ImmersiveGames.Scripts.SceneManagerSystems {
                 await Task.Delay(100);
             }
 
-            Scene activeScene = SceneManager.GetSceneByName(ActiveSceneGroup.FindSceneNameByType(SceneType.ActiveScene));
+            var activeScene = SceneManager.GetSceneByName(_activeSceneGroup.FindSceneNameByType(SceneType.ActiveScene));
 
             if (activeScene.IsValid()) {
                 SceneManager.SetActiveScene(activeScene);
@@ -104,7 +104,7 @@ namespace _ImmersiveGames.Scripts.SceneManagerSystems {
             var scenes = new List<string>();
             var activeScene = SceneManager.GetActiveScene().name;
             
-            int sceneCount = SceneManager.sceneCount;
+            var sceneCount = SceneManager.sceneCount;
 
             for (var i = sceneCount - 1; i > 0; i--) {
                 var sceneAt = SceneManager.GetSceneAt(i);

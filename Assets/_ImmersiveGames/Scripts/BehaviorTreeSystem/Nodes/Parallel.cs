@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
 
-namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
+namespace _ImmersiveGames.Scripts.BehaviorTreeSystem
 {
     public class Parallel : ICompositeNode
     {
@@ -20,32 +20,29 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
 
         public NodeState Execute()
         {
-            bool isAnyRunning = false;
-            int successCount = 0;
-            int failureCount = 0;
+            var isAnyRunning = false;
+            var successCount = 0;
 
-            foreach (var child in children)
-            {
+            foreach (var child in children) {
                 var result = child.Execute();
-                if (result == NodeState.Running)
-                {
-                    isAnyRunning = true;
-                }
-                else if (result == NodeState.Success)
-                {
-                    successCount++;
-                    if (interruptOnSuccess)
-                        return NodeState.Success; // Interrompe imediatamente se configurado
-                }
-                else if (result == NodeState.Failure)
-                {
-                    failureCount++;
-                    if (requireAllSuccess)
+                switch (result) {
+                    case NodeState.Running:
+                        isAnyRunning = true;
+                        break;
+                    case NodeState.Success: {
+                        successCount++;
+                        if (interruptOnSuccess)
+                            return NodeState.Success; // Interrompe imediatamente se configurado
+                        break;
+                    }
+                    case NodeState.Failure when requireAllSuccess:
                         return NodeState.Failure; // Falha imediatamente se todos devem ter sucesso
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
 
-            // Se algum filho ainda está rodando, retorna Running
+            // Se algum filho continua rodando, retorna Running
             if (isAnyRunning)
                 return NodeState.Running;
 
@@ -54,14 +51,14 @@ namespace _ImmersiveGames.Scripts.BehaviorTreeSystem.Nodes
             {
                 if (successCount == children.Count)
                     return NodeState.Success;
-                return NodeState.Failure;
             }
             else
             {
                 if (successCount > 0)
                     return NodeState.Success;
-                return NodeState.Failure;
             }
+
+            return NodeState.Failure;
         }
     }
 }
